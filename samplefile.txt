@@ -1,3 +1,2 @@
 sample data
-Issue fixed
-testing linking issue
+Fix Github Issue 55
