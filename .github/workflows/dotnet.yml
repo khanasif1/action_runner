@@ -1,4 +1,4 @@
-name: .NET
+name: SimpleAspnetApp
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
     - uses: actions/checkout@v2
@@ -18,8 +18,8 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore ./aspnetcoreapp/
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build --no-restore  ./aspnetcoreapp/
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --no-build --verbosity normal  ./aspnetcoreapp/
