@@ -23,5 +23,10 @@ jobs:
       run: dotnet build --no-restore  ./aspnetcoreapp/
     - name: Test
       run: dotnet test --no-build --verbosity normal  ./aspnetcoreapp/
-    - name: Publish
-      run: dotnet publish  ./aspnetcoreapp/
+    - name: Publish application
+      run: dotnet publish "./aspnetcoreapp/" -c Release -o myApp
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+       name: simpleaspnetapp-artifact
+       path: "./myApp" 
