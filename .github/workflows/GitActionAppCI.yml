@@ -1,0 +1,32 @@
+name: .NET
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      run: dotnet restore ./GitActionApp/
+    - name: Build
+      run: dotnet build --no-restore  ./GitActionApp/
+    - name: Test
+      run: dotnet test --no-build --verbosity normal  ./aspnetcoreapp/
+    - name: Publish application
+      run: dotnet publish "./GitActionApp/" -c Release -o myApp
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+       name: simpleaspnetapp-artifact
+       path: "./myApp"        
