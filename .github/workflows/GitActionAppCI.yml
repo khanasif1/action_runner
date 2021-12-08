@@ -31,8 +31,6 @@ jobs:
     - name: PowerShell script
       # You may pin to the exact commit or the version.
       # uses: Amadevus/pwsh-script@1f1751bbf3d1a92127bfc6c32403283625880cbf
-      uses: Amadevus/pwsh-script@v2.0.1
-      with:
-        # PowerShell script to execute in Actions-hydrated context
-        script: Copy-Item "C:\actions-runner\_work\action_runner\action_runner\myApp\*" -Destination "C:\_dev\aspnetcoreapp\dest"
+      run : |
+              Copy-Item "C:\actions-runner\_work\action_runner\action_runner\myApp\*" -Destination "C:\_dev\aspnetcoreapp\dest"
                     
