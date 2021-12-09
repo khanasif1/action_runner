@@ -1,11 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\.github",
-    "\\.github\\workflows",
-    "\\GitActionApp",
-    "\\GitActionApp\\Pages"
+    ""
   ],
-  "SelectedNode": "\\GitActionApp\\Pages\\Index.cshtml",
+  "SelectedNode": "\\GitActionApp.sln",
   "PreviewInSolutionExplorer": false
 }
